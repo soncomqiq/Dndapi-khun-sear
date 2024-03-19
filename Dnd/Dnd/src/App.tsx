@@ -23,7 +23,10 @@ function App() {
   ]);
 
   return (
-    <RouterProvider router={router} />
+    <div className='bg-[url("/image/back1.jpg")] min-h-[100vh]'>
+      <RouterProvider router={router} />
+    </div>
+
 
   )
 }

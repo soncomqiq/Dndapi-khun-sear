@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { dndListServices, dndDetailServices } from '@/services'
-
+import SearchForm from '@/components/searchForm'
 const HomePage = () => {
     const callData = async () => {
         const data = await dndDetailServices.getdndDetail("adult-black-dragon")
@@ -11,7 +11,12 @@ const HomePage = () => {
 
     }, [])
     return (
-        <div>HomePage</div>
+        <div className='m-[auto]'>
+            <div className=' '>
+                <img src='/image/DnD.png' className='max-h-[120px] mt-[50px]' />
+            </div>
+            <SearchForm />
+        </div>
     )
 }
 
