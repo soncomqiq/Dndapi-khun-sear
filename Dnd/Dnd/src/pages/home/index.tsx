@@ -15,7 +15,7 @@ const HomePage = () => {
                 <img src='/image/DnD.png' className='max-h-[120px] mt-[50px]' />
             </div>
             <SearchForm />
-            <div className='grid grid-cols-4 gap-[20px] mt-[50px]'>
+            <div className=' grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[20px] mt-[50px]'>
                 {dnd.data?.map((item) => {
                     return <DndCard data={item} />
                 })}

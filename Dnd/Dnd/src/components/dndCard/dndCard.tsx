@@ -11,7 +11,7 @@ const DndCard = ({ data }: DndCardProps) => {
         <div>
 
 
-            <div className="max-w-sm  overflow-hidden bg-[url('/image/wooden-floor-background.jpg')]  rounded-[20px] shadow dark:bg-gray-800 dark:border-gray-700 p-[16px]">
+            <div className="max-w-[275px] m-[auto]  overflow-hidden bg-[url('/image/wooden-floor-background.jpg')]  rounded-[20px] shadow dark:bg-gray-800 dark:border-gray-700 p-[16px]">
                 <div className='bg-[url("/image/bgcom.webp")] bg-center aspect-square w-full bg-cover rounded-[20px] '>
                     <a href="#" className=''>
                         <img className="rounded-t-lg max-h-[240px] p-[40px] w-full" src={data.image} alt="" />
