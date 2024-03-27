@@ -17,7 +17,7 @@ function App() {
 
     },
     {
-      path: "/detail",
+      path: "/detail/:index",
       element: <DetailPage />,
     },
   ]);

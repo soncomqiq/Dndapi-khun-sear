@@ -31,7 +31,7 @@ export interface IdndDetailResponse {
     special_abilities: SpecialAbility[]
     actions: Action[]
     legendary_actions: LegendaryAction[]
-    image: string
+    image?: string
     url: string
 }
 

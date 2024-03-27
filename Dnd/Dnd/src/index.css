@@ -3,63 +3,63 @@
 @tailwind utilities;
 
 .badge-type {
-    &-plant {
+    &plant {
         background-color: #a8ff98;
     }
 
-    &-undead {
+    &undead {
         background-color: #8e8c94;
     }
 
-    &-celestial {
+    &celestial {
         background-color: #ffa5da;
     }
 
-    &-giant {
+    &giant {
         background-color: #e69a74;
     }
 
-    &-tags {
+    &tags {
         background-color: #fdb9e9;
     }
 
-    &-dragon {
+    &dragon {
         background-color: #88a2e8;
     }
 
-    &-humanoid {
+    &humanoid {
         background-color: #dcdcdc;
     }
 
-    &-beast {
+    &beast {
         background-color: #ffe662;
     }
 
-    &-construct {
+    &construct {
         background-color: #9fb8b9;
     }
 
-    &-monstrosity {
+    &monstrosity {
         background-color: #8cc4e2;
     }
 
-    &-fiend {
+    &fiend {
         background-color: #d6a2e4;
     }
 
-    &-fey {
+    &fey {
         background-color: #bae05f;
     }
 
-    &-elemental {
+    &elemental {
         background-color: #8cf5e4;
     }
 
-    &-ooze {
+    &ooze {
         background-color: #bbc9e4;
     }
 
-    &-aberration {
+    &aberration {
         background-color: #ffb971;
     }
 }

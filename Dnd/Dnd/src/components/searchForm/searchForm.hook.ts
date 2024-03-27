@@ -32,15 +32,19 @@ const useSearchForm = () => {
             for (const dnd of responseResults) {
                 const response = await dndDetailServices.getdndDetail(dnd.index)
                 const dndData = response.data
-                if (dndData.image) {
-                    dndList.push({
-                        ...dndData, image: `https://www.dnd5eapi.co${dndData.image}`
-                    })
-                } else {
-                    dndList.push({
-                        ...dndData, image: `/image/unknow.webp`
-                    })
+
+                if (dndData) {
+                    if (dndData.image) {
+                        dndList.push({
+                            ...dndData, image: `https://www.dnd5eapi.co${dndData.image}`
+                        })
+                    } else {
+                        dndList.push({
+                            ...dndData, image: `/image/unknow.webp`
+                        })
+                    }
                 }
+
 
 
             }

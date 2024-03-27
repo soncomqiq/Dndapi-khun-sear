@@ -17,7 +17,11 @@ const HomePage = () => {
             <SearchForm />
             <div className=' grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[20px] mt-[50px]'>
                 {dnd.data?.map((item) => {
-                    return <DndCard data={item} />
+                    return <DndCard image={item.image}
+                        name={item.name}
+                        type={item.type}
+                        size={item.size}
+                        index={item.index} />
                 })}
             </div>
         </div>
