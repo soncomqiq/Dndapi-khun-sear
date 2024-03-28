@@ -1,11 +1,13 @@
 
+import DndCard from '@/components/dndCard'
 import SearchForm from '@/components/searchForm'
 import { useDndListStore } from '@/store/dndList'
-import DndCard from '@/components/dndCard'
+import ReactLoading from 'react-loading'
+
 
 
 const HomePage = () => {
-    const { dnd } = useDndListStore()
+    const { dnd, fetchDnd } = useDndListStore()
 
     console.log(dnd)
 
@@ -15,7 +17,13 @@ const HomePage = () => {
                 <img src='/image/DnD.png' className='max-h-[120px] mt-[50px]' />
             </div>
             <SearchForm />
-            <div className=' grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[20px] mt-[50px]'>
+
+            {fetchDnd.loading && <div className='h-[600px] flex justify-center items-center'>
+                <ReactLoading type="spin" color="#fff" />
+            </div>}
+
+
+            {!fetchDnd.loading && <div className=' grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-[20px] mt-[50px]'>
                 {dnd.data?.map((item) => {
                     return <DndCard image={item.image}
                         name={item.name}
@@ -23,7 +31,7 @@ const HomePage = () => {
                         size={item.size}
                         index={item.index} />
                 })}
-            </div>
+            </div>}
         </div>
     )
 }

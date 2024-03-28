@@ -3,6 +3,7 @@ import { dndListServices, dndDetailServices } from '@/services'
 import { useForm } from 'react-hook-form'
 import { useDndListStore } from '@/store/dndList'
 import { key } from 'localforage'
+import { IdndDetailResponse } from '@/interface/dndDetail'
 
 
 const useSearchForm = () => {
@@ -17,15 +18,18 @@ const useSearchForm = () => {
     const { setfetchDndList, fetchDnd, setDndList } = useDndListStore()
 
     const keyword = watch("keyword")
+    const type = watch("type")
+    const size = watch("size")
 
     const callData = async () => {
-        const responseList = await dndListServices.getdndList()
-        const dndList = []
         setfetchDndList({
             data: [],
             loading: true,
             error: null,
         })
+        const responseList = await dndListServices.getdndList()
+        const dndList = []
+
 
         if (responseList.status === 200) {
             const responseResults = responseList.data?.results || []
@@ -53,6 +57,7 @@ const useSearchForm = () => {
                 loading: false,
                 error: null,
             })
+            const data = filterdnd(dndList, keyword, type, size)
             setDndList({
                 data: dndList,
                 loading: false,
@@ -67,11 +72,25 @@ const useSearchForm = () => {
             })
         }
     }
+
+    const filterdnd = (
+        dndList: IdndDetailResponse[],
+        keyword: string,
+        type: string,
+        size: string,
+    ) => {
+        const keywordFilter = dndList.filter((item) => item.name.includes(keyword))
+        const typeFilter = type !== "all types" ? keywordFilter.filter((item) => item.type.includes(type)) : keywordFilter
+        const sizeFilter = size !== "all size" ? typeFilter.filter((item) => item.size.includes(size)) : typeFilter
+        return sizeFilter
+    }
+
     useEffect(() => {
+
+
         callData()
 
     }, [])
-
     useEffect(() => {
         const data = fetchDnd.data.filter((item) => item.name.includes(keyword))
         setDndList({
@@ -82,9 +101,21 @@ const useSearchForm = () => {
 
     }, [keyword])
 
+    useEffect(() => {
+        const data = filterdnd(fetchDnd.data, keyword, type, size)
+        setDndList({
+            data: data,
+            loading: false,
+            error: null,
+        })
+
+    }, [keyword, type, size])
+
 
     return {
-        fieldKeyword: register("keyword")
+        fieldKeyword: register("keyword"),
+        fieldtype: register("type"),
+        fieldsize: register("size"),
     }
 }
 
