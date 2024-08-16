@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { dndListServices, dndDetailServices } from '@/services'
 import { useForm } from 'react-hook-form'
 import { useDndListStore } from '@/store/dndList'
-import { key } from 'localforage'
 import { IdndDetailResponse } from '@/interface/dndDetail'
 
 
@@ -10,9 +9,7 @@ const useSearchForm = () => {
 
     const {
         register,
-        handleSubmit,
         watch,
-        formState: { errors },
     } = useForm();
 
     const { setfetchDndList, fetchDnd, setDndList } = useDndListStore()
@@ -57,7 +54,7 @@ const useSearchForm = () => {
                 loading: false,
                 error: null,
             })
-            const data = filterdnd(dndList, keyword, type, size)
+           // const data = filterdnd(dndList, keyword, type, size)
             setDndList({
                 data: dndList,
                 loading: false,
