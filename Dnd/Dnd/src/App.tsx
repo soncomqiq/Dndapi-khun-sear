@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
 
 import "./App.css";
 import HomePage from "./pages/home";
@@ -7,7 +6,7 @@ import DetailPage from "./pages/detail";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
 
   const router = createBrowserRouter([
     {

@@ -3,8 +3,8 @@ import { AxiosError, AxiosResponse } from 'axios'
 export interface IResponse {
     status: number | undefined,
     error?:
-    | AxiosError<AxiosResponse<AxiosResponse<any, any>, any>>
-    | AxiosResponse<any, any>
+    | AxiosError<AxiosResponse<AxiosResponse<unknown, unknown>, unknown>>
+    | AxiosResponse<unknown, unknown>
     | undefined
 }
 

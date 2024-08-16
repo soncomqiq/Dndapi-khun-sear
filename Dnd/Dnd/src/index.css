@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/*
 .badge-type {
     &plant {
         background-color: #a8ff98;
@@ -62,4 +62,4 @@
     &aberration {
         background-color: #ffb971;
     }
-}
+}*/
